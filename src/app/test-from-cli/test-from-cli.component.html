@@ -1,0 +1,38 @@
+<!-- String Interpolation -->
+<p>{{tittle}}</p>
+<h3>Hello {{personName}}</h3> 
+
+<!-- Property Binding -->
+<img [src] ="imgSrc" alt="">
+<p [innerText]="tittle"></p>
+<img [attr.src] ="imgSrc" alt="">
+<input placeholder="basma" [type] ="showpassword ? 'text' : 'password'">
+<p [class.test3]="showpassword" [class]="showpassword ? 'test2' : ''" [ngClass]="{'password-show': showpassword}" (click)="showpassword = !showpassword">Show Password</p>
+<p [ngStyle]="{'fontSize.px':50}">Hello</p>
+
+<p [class]="class">hihihihihihi</p>
+
+<!-- switch -->
+<div [ngSwitch]="number"> <!--this line is behavioural-->
+    <h1 *ngSwitchCase="1"> this is h1</h1>
+    <h2 *ngSwitchCase="2">this is h2</h2>
+    <p *ngSwitchDefault>this is default</p>
+</div>
+
+<h1 *ngIf="showpassword; else templateEx">Show Password True</h1>
+
+<ng-template #templateEx>
+    <h1>Show Password False</h1>
+</ng-template>
+
+<!------ select elementss ----------->
+<input #inputEl type="text" id="1" value="basma1">
+<input #inputEl type="text" id="2" value="basma2">
+<input #inputEl type="text" id="3" value="basma3">
+<button (click)="testButton(inputEl)">button</button>
+
+<!-- <div>
+    <h3>
+        {{inputEl.value}}
+    </h3>
+</div> -->
