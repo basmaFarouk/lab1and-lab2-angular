@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/_models/product/product.model';
 
 @Component({
@@ -17,9 +18,16 @@ export class ProductListingComponent implements OnInit {
     {id:7, name:'mouse', price:100, discount:10, imageUrl: 'https://picsum.photos/200/306'},
     {id:8, name:'keyboard', price:100, discount:10, imageUrl: 'https://picsum.photos/200/307'},
   ]
+
+  @Output()
+  itemAdded: EventEmitter<Product> = new EventEmitter<Product>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onItemAddedToCart(product: Product){
+    console.log(product)
+    this.itemAdded.emit(product)
+  }
 }
